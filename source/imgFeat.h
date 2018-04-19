@@ -32,7 +32,8 @@ namespace feat
 	void getCannyEdge(const Mat& imgSrc, Mat& imgDst, double lowThresh = -1, double highThresh = -1, double sigma = 1);
 
 
-	void detectHarrisCorners(const Mat& imgSrc, Mat& imgDst, double alpha);
+	void detectHarrisCorners(const Mat& imgSrc, Mat& imgDst, int blockSize, int kSize, double alpha);
+	void detectHarrisCornersOpencv(const Mat& imgSrc, Mat& imgDst, int blockSize, int kSize, double alpha);
 	void drawCornerOnImage(Mat& image, const Mat&binary);
 	void detectHarrisLaplace(const Mat& imgSrc, Mat& imgDst);
 }

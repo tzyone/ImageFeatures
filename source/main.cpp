@@ -4,7 +4,11 @@ int main(int argc, char** argv)
 {
 	Mat image = imread(argv[1]);
 	Mat cornerMap;
-	feat::detectHarrisLaplace(image ,cornerMap);
+
+	int blockSize = atoi(argv[2]);
+	int kSize = atoi(argv[3]);
+	double alpha = (double)atof(argv[4]);
+	feat::detectHarrisCornersOpencv(image ,cornerMap, blockSize, kSize, alpha);
 	feat::drawCornerOnImage(image, cornerMap);
 	
 	namedWindow("corners");
