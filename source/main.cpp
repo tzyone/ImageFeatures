@@ -8,7 +8,14 @@ int main(int argc, char** argv)
 	double alpha = (double)atof(argv[4]);
 
 	Mat cornerMap;
-	feat::detectHarrisCornersOpencv(image ,cornerMap, blockSize, kSize, alpha);
+	if (argc == 5)
+	{
+		feat::detectHarrisCornersOpencv(image ,cornerMap, blockSize, kSize, alpha);
+	}
+	else
+	{
+		feat::detectHarrisLaplace(image, cornerMap);
+	}
 	feat::drawCornerOnImage(image, cornerMap);
 	
 	namedWindow("corners");
